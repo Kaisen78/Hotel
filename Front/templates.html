@@ -1,0 +1,49 @@
+<?php
+// templates.php
+
+function renderTemplate($title, $content) {
+    // Header commun
+    echo '
+    <!DOCTYPE html>
+    <html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="Hôtel La Flèche d\'Argent, hôtel 4 étoiles à Bordeaux">
+        <meta name="keywords" content="hôtel, Bordeaux, luxe, chambres, restaurant, massages">
+        <title>' . htmlspecialchars($title) . '</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+    
+        <!-- HEADER -->
+        <header>
+            <nav>
+                <div class="logo">
+                    <img src="images/logo.png" alt="Hôtel La Flèche d\'Argent">
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.php">Accueil</a></li>
+                    <li><a href="chambres.php">Chambres</a></li>
+                    <li><a href="restaurant.php">Restaurant</a></li>
+                    <li><a href="massage.php">Salon de Massage</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>
+                    <li><a href="contact.php">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <!-- MAIN CONTENT -->
+        <main>
+            ' . $content . '
+        </main>
+    
+        <!-- FOOTER -->
+        <footer>
+            <p>&copy; 2025 Hôtel La Flèche d\'Argent - Tous droits réservés</p>
+        </footer>
+    
+    </body>
+    </html>';
+}
+?>
