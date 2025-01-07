@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription - La Flèche d’Argent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/inscription.css">
+</head>
+<body>
+    <header>
+        <h1>Inscription</h1>
+        <p>Rejoignez La Flèche d’Argent et profitez d'une expérience inoubliable.</p>
+    </header>
+    <main>
+        <form action="submit_inscription.php" method="post">
+            <div class="form-group">
+                <label for="pseudo">Nom d'utilisateur (pseudo) :</label>
+                <input type="text" id="pseudo" name="pseudo" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Adresse E-mail :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="motdepasse">Mot de passe :</label>
+                <input type="password" id="motdepasse" name="motdepasse" required>
+            </div>
+            <div class="form-group">
+                <label for="adresse">Adresse postale :</label>
+                <input type="text" id="adresse" name="adresse" required>
+            </div>
+            <div class="form-group">
+                <label for="telephone">Numéro de téléphone :</label>
+                <input type="tel" id="telephone" name="telephone" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">S'inscrire</button>
+            </div>
+        </form>
+        <p>Déjà un compte ? <a href="connection.html">Connectez-vous ici</a>.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
