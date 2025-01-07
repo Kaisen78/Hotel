@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réservation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/reservation.css">
+</head>
+<body>
+    <h1>Réserver une chambre</h1>
+    <div class="calendar">
+        <div class="calendar-header">
+            <button id="prevMonth">&lt;</button>
+            <div id="monthYear"></div>
+            <button id="nextMonth">&gt;</button>
+        </div>
+        <div class="calendar-days" id="calendarDays"></div>
+        <div class="info">
+            <p>Date sélectionnée : </p>
+            <span id="selectedDate">Aucune</span>
+        </div>
+    </div>
+
+    <script src="script/reservation.js"></script>
+</body>
+</html>
