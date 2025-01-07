@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - La Flèche d’Argent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/connection.css">
+</head>
+<body>
+    <header>
+        <h1>Connexion</h1>
+        <p>Connectez-vous pour accéder à votre compte.</p>
+    </header>
+    <main>
+        <form action="submit_connection.php" method="post">
+            <div class="form-group">
+                <label for="email">Adresse E-mail :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="motdepasse">Mot de passe :</label>
+                <input type="password" id="motdepasse" name="motdepasse" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Se connecter</button>
+            </div>
+        </form>
+        <p>Pas encore de compte ? <a href="inscription.html">Inscrivez-vous ici</a>.</p>
+    </main>
+    <footer>
+        <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
