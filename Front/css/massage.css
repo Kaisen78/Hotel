@@ -66,3 +66,25 @@ footer {
 footer p {
     font-size: 0.9rem;
 }
+.header-content {
+    z-index: 1;
+}
+
+header .login-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 2;
+}
+
+header .login-logo img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+header .login-logo img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
