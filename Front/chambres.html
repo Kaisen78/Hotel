@@ -18,23 +18,6 @@
             </a>
         </div>
     </header>
-    <!-- Bouton pour ouvrir le menu -->
-<button id="menu-toggle" class="menu-button">Menu</button>
-
-<!-- Panneau du menu -->
-<div id="sidebar" class="sidebar">
-    <button id="close-btn" class="close-btn">&times;</button>
-    <h2>Menu</h2>
-    <ul>
-        <li><a href="index.html">Accueil</a></li>
-        <li><a href="chambres.html">Chambres</a></li>
-        <li><a href="restaurant.html">Restaurant</a></li>
-        <li><a href="massage.html">Massage</a></li>
-        <li><a href="inscription.html">Inscription</a></li>
-        <li><a href="connection.html">Connexion</a></li>
-        <li><a href="administrateur.html">Administration</a></li>
-    </ul>
-</div>
     <main>
         <section class="chambre-list">
             <div class="chambre-item">
@@ -62,27 +45,5 @@
     <footer>
         <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
     </footer>
-    <script>
-        const menuToggle = document.getElementById('menu-toggle');
-        const sidebar = document.getElementById('sidebar');
-        const closeBtn = document.getElementById('close-btn');
-    
-        // Ouvrir le menu
-        menuToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('open');
-        });
-    
-        // Fermer le menu
-        closeBtn.addEventListener('click', () => {
-            sidebar.classList.remove('open');
-        });
-    
-        // Fermer le menu si on clique en dehors
-        window.addEventListener('click', (event) => {
-            if (event.target === sidebar) {
-                sidebar.classList.remove('open');
-            }
-        });
-    </script>
 </body>
 </html>
