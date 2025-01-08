@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administration - La Flèche d’Argent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/administrateur.css">
+</head>
+<body>
+    <header>
+        <h1>Panneau d'Administration</h1>
+        <p>Gérez les utilisateurs, les réservations et les avis.</p>
+    </header>
+    <main>
+        <section class="utilisateurs">
+            <h2>Liste des Utilisateurs</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>Email</th>
+                        <th>Téléphone</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>utilisateur1</td>
+                        <td>utilisateur1@example.com</td>
+                        <td>0123456789</td>
+                        <td><button>Supprimer</button></td>
+                    </tr>
+                    <tr>
+                        <td>utilisateur2</td>
+                        <td>utilisateur2@example.com</td>
+                        <td>0123456788</td>
+                        <td><button>Supprimer</button></td>
+                    </tr>
+                    <!-- Ajoutez d'autres utilisateurs ici -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="reservations">
+            <h2>Historique des Réservations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom de l'utilisateur</th>
+                        <th>Type de chambre</th>
+                        <th>Dates de séjour</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>utilisateur1</td>
+                        <td>Chambre Confort</td>
+                        <td>01/01/2025 - 05/01/2025</td>
+                        <td><button>Annuler</button></td>
+                    </tr>
+                    <tr>
+                        <td>utilisateur2</td>
+                        <td>Suite</td>
+                        <td>10/01/2025 - 15/01/2025</td>
+                        <td><button>Annuler</button></td>
+                    </tr>
+                    <!-- Ajoutez d'autres réservations ici -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="avis">
+            <h2>Avis des Clients</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Pseudo</th>
+                        <th>Avis</th>
+                        <th>Date</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>utilisateur1</td>
+                        <td>Excellent séjour, très satisfait !</td>
+                        <td>01/01/2025</td>
+                        <td><button>Supprimer</button></td>
+                    </tr>
+                    <tr>
+                        <td>utilisateur2</td>
+                        <td>Le service était moyen.</td>
+                        <td>02/01/2025</td>
+                        <td><button>Supprimer</button></td>
+                    </tr>
+                    <!-- Ajoutez d'autres avis ici -->
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
