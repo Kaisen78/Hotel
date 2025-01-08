@@ -30,40 +30,6 @@ h1 {
     overflow: hidden;
 }
 
-.guest-selection {
-    background-color: #fefefe;
-    padding: 20px;
-    border-bottom: 1px solid #ddd;
-}
-
-.guest-selection h2 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-    color: #c39e81;
-}
-
-.guest-inputs {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 10px;
-}
-
-.guest-inputs label {
-    font-weight: bold;
-    font-size: 1rem;
-    color: #555;
-}
-
-.guest-inputs input {
-    width: 80px;
-    padding: 10px;
-    font-size: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
 .calendar {
     padding: 20px;
 }
@@ -81,7 +47,7 @@ h1 {
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 10px;
+    padding: 10px 20px;
     cursor: pointer;
     font-size: 1.2rem;
     transition: background-color 0.3s ease;
@@ -108,9 +74,15 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
+.calendar-days div.disabled {
+    background-color: #f0f0f0;
+    cursor: default;
+    border: none;
+}
+
 .calendar-days div.selected {
     background-color: #c39e81;
-    color: #fff;
+    color: white;
     font-weight: bold;
 }
 
@@ -121,39 +93,22 @@ h1 {
 .info {
     margin-top: 20px;
     font-size: 1rem;
-}
-
-.reservation-summary {
-    margin-top: 20px;
-    padding: 20px;
-}
-
-#confirmReservation {
-    background-color: #c39e81;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    font-size: 1rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#confirmReservation:hover {
-    background-color: #a37a5b;
-}
-
-#reservationDetails {
-    margin-top: 15px;
-    font-size: 1rem;
     color: #555;
+    text-align: left;
+}
+
+.info span {
+    font-weight: bold;
+    color: #c39e81;
 }
 
 footer {
     background: #333;
-    color: #fff;
+    color: white;
     text-align: center;
     padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
 }
 
 footer p {

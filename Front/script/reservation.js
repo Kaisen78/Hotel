@@ -6,12 +6,17 @@ const prevMonthButton = document.getElementById('prevMonth');
 const nextMonthButton = document.getElementById('nextMonth');
 const adultsInput = document.getElementById('adults');
 const childrenInput = document.getElementById('children');
+const roomTypeSelect = document.getElementById('roomType');
 const confirmReservationButton = document.getElementById('confirmReservation');
 const reservationDetailsElement = document.getElementById('reservationDetails');
 
 let currentDate = new Date();
 let selectedDates = new Set();
-const pricePerNight = 281;
+
+function getRoomPrice() {
+    const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
+    return parseInt(selectedOption.dataset.price, 10);
+}
 
 function renderCalendar() {
     calendarDaysElement.innerHTML = '';
@@ -74,7 +79,7 @@ function updateSelectedDatesDisplay() {
 }
 
 function updateTotalCost() {
-    const totalCost = selectedDates.size * pricePerNight;
+    const totalCost = selectedDates.size * getRoomPrice();
     totalCostElement.textContent = `${totalCost} €`;
 }
 
@@ -97,7 +102,9 @@ function confirmReservation() {
         .map(date => new Date(date).toLocaleDateString())
         .join(', ');
 
-    reservationDetailsElement.textContent = `Vous avez réservé pour ${totalGuests} personne${totalGuests > 1 ? 's' : ''} (${adults} adulte${adults > 1 ? 's' : ''} et ${children} enfant${children > 1 ? 's' : ''}) aux dates suivantes : ${dates}. Coût total : ${selectedDates.size * pricePerNight} €`;
+    const roomType = roomTypeSelect.options[roomTypeSelect.selectedIndex].text;
+
+    reservationDetailsElement.textContent = `Vous avez réservé une chambre ${roomType.toLowerCase()} pour ${totalGuests} personne${totalGuests > 1 ? 's' : ''} (${adults} adulte${adults > 1 ? 's' : ''} et ${children} enfant${children > 1 ? 's' : ''}) aux dates suivantes : ${dates}. Coût total : ${selectedDates.size * getRoomPrice()} €`;
 }
 
 prevMonthButton.addEventListener('click', () => {
@@ -109,6 +116,8 @@ nextMonthButton.addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
     renderCalendar();
 });
+
+roomTypeSelect.addEventListener('change', updateTotalCost);
 
 confirmReservationButton.addEventListener('click', confirmReservation);
 
