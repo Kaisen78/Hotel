@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Compte - La Flèche d’Argent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/mon-compte.css">
+</head>
+<body>
+    <header>
+        <h1>Mon Compte</h1>
+        <p>Gérez vos informations personnelles et vos réservations.</p>
+    </header>
+    <main>
+        <section class="reservations">
+            <h2>Mes Réservations</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Type de chambre</th>
+                        <th>Dates de séjour</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Chambre Confort</td>
+                        <td>01/01/2025 - 05/01/2025</td>
+                        <td><button>Annuler</button></td>
+                    </tr>
+                    <tr>
+                        <td>Suite</td>
+                        <td>10/01/2025 - 15/01/2025</td>
+                        <td><button>Annuler</button></td>
+                    </tr>
+                    <!-- Ajoutez d'autres réservations ici -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="informations-personnelles">
+            <h2>Modifier mes Informations Personnelles</h2>
+            <form action="update_info.php" method="post">
+                <div class="form-group">
+                    <label for="name">Nom :</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email :</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Téléphone :</label>
+                    <input type="tel" id="phone" name="phone" required>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Mettre à jour</button>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
