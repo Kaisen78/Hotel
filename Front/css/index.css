@@ -88,6 +88,69 @@ header a:hover {
     background-color: #a37a5b;
 }
 
+.navbar {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-hidden { 
+    transform: translateY(-100%);
+}
+
+.navbar-logo a {
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+.navbar-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-links li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: #c39e81;
+}
+
+.navbar-links .btn-connexion {
+    background-color: #c39e81;
+    color: #fff;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-links .btn-connexion:hover {
+    background-color: #a37a5b;
+}
+
+.navbar-toggle {
+    display: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
 section {
     padding: 50px;
 }
@@ -155,21 +218,46 @@ footer p {
     .service h3 {
         font-size: 1.2rem;
     }
-}
-#presentation {
-    text-align: center; /* Centrer le texte */
-    font-family: 'Cinzel', serif; /* Utiliser la police Cinzel */
-    font-size: 1.2rem; /* Taille de police */
-    color: #333; /* Couleur du texte */
-    background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement blanc pour contraster */
-    border: 1px solid #c39e81; /* Bordure pour donner un effet ancien */
-    border-radius: 10px; /* Coins arrondis */
-    padding: 40px 20px; /* Espacement interne plus grand pour donner de la hauteur */
-    margin: 20px auto; /* Marge automatique pour centrer la section */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
-    max-width: 600px; /* Largeur maximale pour la section, moins large */
-    height: auto; /* Hauteur automatique */
-    line-height: 1.6; /* Hauteur de ligne pour améliorer la lisibilité */
-    overflow: hidden; /* Cacher le débordement si nécessaire */
+
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        width: 100%;
+        padding: 10px 0;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
+
+    .navbar-links .btn-connexion {
+        text-align: center;
+        width: 100%;
+        margin-top: 10px;
+    }
 }
 
+#presentation {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    color: #333;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid #c39e81;
+    border-radius: 10px;
+    padding: 40px 20px;
+    margin: 20px auto;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    max-width: 600px;
+    height: auto;
+    line-height: 1.6;
+    overflow: hidden;
+}
