@@ -1,0 +1,98 @@
+/* Styles généraux */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hors de l'écran */
+    width: 250px;
+    height: 100%;
+    background: #333;
+    color: white;
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: transform 0.3s ease, opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 1000;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar.open {
+    transform: translateX(0); /* Glisse vers l'intérieur */
+    opacity: 1;
+    visibility: visible;
+}
+
+.sidebar h2 {
+    color: white;
+    text-align: center;
+    margin: 20px 0;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    display: block;
+    transition: background 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background: #555;
+    border-radius: 5px;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.close-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Bouton d'ouverture */
+.menu-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1100;
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.menu-button:hover {
+    background: #555;
+}
+
+.menu-button.open {
+    transform: rotate(90deg); /* Rotation lorsqu'il est actif */
+}
+
+/* Animation supplémentaire (rebond) */
+.sidebar.open {
+    transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.3s ease;
+}

@@ -33,7 +33,7 @@ header .login-logo {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 2;
+    z-index: 1;
 }
 
 header .login-logo img {
@@ -172,3 +172,4 @@ footer p {
     line-height: 1.6; /* Hauteur de ligne pour améliorer la lisibilité */
     overflow: hidden; /* Cacher le débordement si nécessaire */
 }
+

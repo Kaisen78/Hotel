@@ -76,13 +76,10 @@ p {
     margin-top: 15px;
 }
 
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
 
-footer p {
+footer {
+    margin-top: 20px;
+    text-align: center;
     font-size: 0.9rem;
+    color: #666;
 }

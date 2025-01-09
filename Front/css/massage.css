@@ -55,17 +55,29 @@ main {
 .massage-item:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre au survol */
 }
+.reserve-button {
+    padding: 10px 15px; /* Espacement interne */
+    background-color: #c39e81; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de main */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de survol */
+    font-size: 1rem; /* Taille de police */
+}
+
+.reserve-button:hover {
+    background-color: #a37a5b; /* Couleur au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
 
 footer {
-    background: #333;
-    color: #fff;
+    margin-top: 20px;
     text-align: center;
-    padding: 20px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
-footer p {
-    font-size: 0.9rem;
-}
 .header-content {
     z-index: 1;
 }
