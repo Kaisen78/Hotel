@@ -7,13 +7,17 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
+    background-image: url('/Hotel/Front/assets/istockphoto-1310081147-612x612.jpg');
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    background-size: cover; /* Couvre toute la page */
+    background-position: center center; /* Centre l'image */
+    background-attachment: fixed; /* Rendre l'image fixe lors du défilement */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
 
 header {
@@ -28,6 +32,29 @@ header h1 {
 
 header p {
     font-size: 1.2rem;
+}
+header .login-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
+}
+
+header .login-logo img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+header .login-logo img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
 }
 
 main {
