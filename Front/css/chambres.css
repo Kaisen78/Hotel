@@ -21,15 +21,18 @@ body {
 header {
     text-align: center;
     margin-bottom: 40px;
+    width: 100%;
 }
 
-header h1 {
+ h1 {
+    text-align: center;
     font-size: 3rem;
     margin-bottom: 20px;
 }
 
-header p {
-    font-size: 1.5rem;
+p {
+    text-align: center;
+    font-size: 1.5rem;    
 }
 header .login-logo {
     position: absolute;
@@ -149,4 +152,97 @@ header .login-logo img:hover {
 .reserve-btn:hover {
     background-color: #a37a5b;
     transform: scale(1.1); /* Zoom léger au survol */
+}
+
+/* Style de la barre de navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Fond transparent */
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo principal */
+.navbar-logo a {
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar-logo a:hover {
+    color: #c39e81; /* Couleur de survol */
+}
+
+/* Liens de navigation */
+.navbar-links {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    margin: 0;
+}
+
+.navbar-links li a {
+    color: #fff;
+    font-size: 1rem;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar-links li a:hover {
+    color: #c39e81; /* Couleur de survol */
+}
+
+/* Logo de connexion dans la navbar */
+.navbar-logo img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-logo img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+/* Bouton de menu pour les petits écrans */
+.navbar-toggle {
+    display: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar-links {
+        display: none;
+        flex-direction: column;
+        background-color: rgba(0, 0, 0, 0.9);
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-toggle {
+        display: block;
+    }
 }
