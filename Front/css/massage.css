@@ -57,15 +57,12 @@ main {
 }
 
 footer {
-    background: #333;
-    color: #fff;
+    margin-top: 20px;
     text-align: center;
-    padding: 20px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
-footer p {
-    font-size: 0.9rem;
-}
 .header-content {
     z-index: 1;
 }
