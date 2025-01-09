@@ -12,11 +12,7 @@ const reservationDetailsElement = document.getElementById('reservationDetails');
 
 let currentDate = new Date();
 let selectedDates = new Set();
-
-function getRoomPrice() {
-    const selectedOption = roomTypeSelect.options[roomTypeSelect.selectedIndex];
-    return parseInt(selectedOption.dataset.price, 10);
-}
+let selectionStart = null;
 
 function renderCalendar() {
     calendarDaysElement.innerHTML = '';
@@ -44,24 +40,43 @@ function renderCalendar() {
             dateCell.classList.add('selected');
         }
 
-        dateCell.addEventListener('click', () => toggleDateSelection(dateCell));
+        dateCell.addEventListener('click', () => handleDateSelection(dateCell));
         calendarDaysElement.appendChild(dateCell);
     }
 }
 
-function toggleDateSelection(cell) {
-    const date = cell.dataset.date;
+function handleDateSelection(cell) {
+    const selectedDate = new Date(cell.dataset.date);
 
-    if (selectedDates.has(date)) {
-        selectedDates.delete(date);
-        cell.classList.remove('selected');
+    if (!selectionStart) {
+        // Début de la sélection
+        selectionStart = selectedDate;
+        selectedDates.add(cell.dataset.date);
     } else {
-        selectedDates.add(date);
-        cell.classList.add('selected');
+        // Fin de la sélection et remplissage de l'intervalle
+        const selectionEnd = selectedDate;
+        fillDateRange(selectionStart, selectionEnd);
+        selectionStart = null; // Réinitialisation de la sélection
     }
 
     updateSelectedDatesDisplay();
     updateTotalCost();
+    renderCalendar();
+}
+
+function fillDateRange(startDate, endDate) {
+    // Réinitialisation des dates sélectionnées
+    selectedDates.clear();
+
+    const start = startDate < endDate ? startDate : endDate;
+    const end = startDate < endDate ? endDate : startDate;
+
+    let currentDate = new Date(start);
+
+    while (currentDate <= end) {
+        selectedDates.add(currentDate.toISOString());
+        currentDate.setDate(currentDate.getDate() + 1);
+    }
 }
 
 function updateSelectedDatesDisplay() {
@@ -79,7 +94,8 @@ function updateSelectedDatesDisplay() {
 }
 
 function updateTotalCost() {
-    const totalCost = selectedDates.size * getRoomPrice();
+    const pricePerNight = parseInt(roomTypeSelect.value, 10);
+    const totalCost = selectedDates.size * pricePerNight;
     totalCostElement.textContent = `${totalCost} €`;
 }
 
@@ -102,9 +118,7 @@ function confirmReservation() {
         .map(date => new Date(date).toLocaleDateString())
         .join(', ');
 
-    const roomType = roomTypeSelect.options[roomTypeSelect.selectedIndex].text;
-
-    reservationDetailsElement.textContent = `Vous avez réservé une chambre ${roomType.toLowerCase()} pour ${totalGuests} personne${totalGuests > 1 ? 's' : ''} (${adults} adulte${adults > 1 ? 's' : ''} et ${children} enfant${children > 1 ? 's' : ''}) aux dates suivantes : ${dates}. Coût total : ${selectedDates.size * getRoomPrice()} €`;
+    reservationDetailsElement.textContent = `Vous avez réservé pour ${totalGuests} personne${totalGuests > 1 ? 's' : ''} (${adults} adulte${adults > 1 ? 's' : ''} et ${children} enfant${children > 1 ? 's' : ''}) aux dates suivantes : ${dates}. Coût total : ${selectedDates.size * parseInt(roomTypeSelect.value, 10)} €`;
 }
 
 prevMonthButton.addEventListener('click', () => {
@@ -117,7 +131,9 @@ nextMonthButton.addEventListener('click', () => {
     renderCalendar();
 });
 
-roomTypeSelect.addEventListener('change', updateTotalCost);
+roomTypeSelect.addEventListener('change', () => {
+    updateTotalCost();
+});
 
 confirmReservationButton.addEventListener('click', confirmReservation);
 
