@@ -1,65 +1,70 @@
 document.addEventListener("DOMContentLoaded", () => {
     const chambreList = document.querySelector(".chambre-list");
-    const chambres = document.querySelectorAll(".chambre-item");
-    const centerOffset = window.innerWidth / 2;
-    
-    let currentIndex = 0;
-    const scrollInterval = 5000; // Temps entre chaque défilement (5 secondes)
-    
-    function calculateDistance(element) {
-        const rect = element.getBoundingClientRect();
-        const elementCenter = rect.left + (rect.width / 2);
-        return Math.abs(elementCenter - centerOffset);
-    }
-    
-    function updateChambres() {
-        chambres.forEach((chambre) => {
-            const distance = calculateDistance(chambre);
-            const maxDistance = window.innerWidth / 2;
-            const ratio = Math.min(distance / maxDistance, 1);
-            
-            // Calcul progressif du flou et de l'opacité
-            const blur = Math.min(10 * ratio, 10);
-            const scale = 1 - (0.2 * ratio);
-            const opacity = 1 - (0.5 * ratio);
-            
-            chambre.style.transform = `scale(${scale})`;
-            chambre.style.filter = `blur(${blur}px)`;
-            chambre.style.opacity = opacity;
-            
-            // Effet de parallaxe sur l'image
-            const img = chambre.querySelector('img');
-            if (img) {
-                img.style.transform = `scale(${1 + (0.1 * (1 - ratio))})`;
-            }
-        });
-    }
-    
-    function moveCarousel() {
-        currentIndex = (currentIndex + 1) % chambres.length;
-        const offset = -currentIndex * (chambres[0].offsetWidth + 30); // 30px est le gap entre les éléments
-        chambreList.style.transform = `translateX(calc(-50% + ${offset}px))`;
-        
-        // Mise à jour progressive des effets
-        requestAnimationFrame(updateChambres);
-    }
-    
-    // Initialisation
-    updateChambres();
-    
-    // Défilement automatique
-    setInterval(moveCarousel, scrollInterval);
-    
-    // Mise à jour lors du redimensionnement
-    window.addEventListener('resize', updateChambres);
-    
-    // Animation fluide pendant le défilement
-    chambreList.addEventListener('transitionstart', () => {
-        requestAnimationFrame(function animate() {
-            updateChambres();
-            if (chambreList.style.transition !== '') {
-                requestAnimationFrame(animate);
-            }
-        });
+    const chambres = Array.from(document.querySelectorAll(".chambre-item"));
+    const arrowLeft = document.querySelector(".arrow.left");
+    const arrowRight = document.querySelector(".arrow.right");
+
+    const itemWidth = chambres[0].offsetWidth + 30; // Largeur de chaque élément + espace
+    let currentIndex = 1; // Démarrage après le clone initial
+    const totalChambres = chambres.length;
+
+    // Clone des premiers et derniers éléments
+    const firstClone = chambres[0].cloneNode(true);
+    const lastClone = chambres[totalChambres - 1].cloneNode(true);
+    chambreList.appendChild(firstClone); // Ajouter le clone du premier à la fin
+    chambreList.insertBefore(lastClone, chambres[0]); // Ajouter le clone du dernier au début
+
+    // Précharger les images des clones
+    const preloadImage = (image) => {
+        const img = new Image();
+        img.src = image.src;
+    };
+    chambres.forEach((chambre) => preloadImage(chambre.querySelector("img")));
+    preloadImage(firstClone.querySelector("img"));
+    preloadImage(lastClone.querySelector("img"));
+
+    // Position initiale
+    chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+
+    // Fonction pour mettre à jour la position
+    const updateCarousel = () => {
+        chambreList.style.transition = "transform 0.4s ease-in-out";
+        chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+    };
+
+    // Gestion des limites pour le défilement infini
+    const handleInfiniteScroll = () => {
+        if (currentIndex === 0) {
+            chambreList.style.transition = "none"; // Pas de transition
+            currentIndex = totalChambres; // Aller au dernier élément
+            requestAnimationFrame(() => {
+                chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+            });
+        }
+        if (currentIndex === totalChambres + 1) {
+            chambreList.style.transition = "none"; // Pas de transition
+            currentIndex = 1; // Retour au premier élément
+            requestAnimationFrame(() => {
+                chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
+            });
+        }
+    };
+
+    // Navigation avec les flèches
+    arrowLeft.addEventListener("click", () => {
+        if (currentIndex > 0) {
+            currentIndex--;
+            updateCarousel();
+        }
     });
+
+    arrowRight.addEventListener("click", () => {
+        if (currentIndex < totalChambres + 1) {
+            currentIndex++;
+            updateCarousel();
+        }
+    });
+
+    // Réinitialisation après la transition
+    chambreList.addEventListener("transitionend", handleInfiniteScroll);
 });

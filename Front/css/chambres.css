@@ -13,100 +13,90 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    overflow-x: hidden;
 }
 
-/* En-tête */
 header {
     text-align: center;
     margin-bottom: 40px;
-    width: 100%;
-    position: relative;
-    padding: 20px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 15px;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
 
-header .login-logo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 1;
-}
-
-header .login-logo img {
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-header .login-logo img:hover {
-    transform: scale(1.1);
-    opacity: 0.8;
-}
-
-/* Conteneur du carrousel */
+/* Carousel Wrapper */
 .chambre-wrapper {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1200px; /* Augmentation de la largeur maximale */
     overflow: hidden;
     position: relative;
-    height: 400px;
-    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 20px 0; /* Ajout d'espace autour */
 }
 
-/* Liste des chambres */
+/* Chambre List */
 .chambre-list {
     display: flex;
-    gap: 30px;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.6s ease-in-out; /* Transition plus fluide */
+    gap: 30px; /* Plus d'espace entre les éléments */
 }
 
-/* Style des chambres */
 .chambre-item {
-    flex: 0 0 300px;
+    flex: 0 0 400px; /* Augmentation de la largeur des cartes */
     text-align: center;
     background: white;
     border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 0.3s ease;
 }
 
-.chambre-item h2 {
-    padding: 15px;
-    font-size: 1.2rem;
-    background: rgba(255, 255, 255, 0.9);
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    backdrop-filter: blur(5px);
+.chambre-item:hover {
+    transform: scale(1.1); /* Accentuation de l'effet au survol */
 }
 
 .chambre-item img {
     width: 100%;
-    height: 100%;
+    height: 300px; /* Agrandissement de la hauteur des images */
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Footer */
-footer {
-    margin-top: 40px;
-    text-align: center;
-    padding: 20px;
-    width: 100%;
-    background: #fff;
+.chambre-item h2 {
+    padding: 15px;
+    font-size: 1.5rem; /* Augmentation de la taille du texte */
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Navigation Arrows */
+.arrow {
+    background: none;
+    border: none;
+    font-size: 3rem; /* Agrandissement des flèches */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #333;
+    padding: 0 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.arrow:hover {
+    color: #666;
+    transform: scale(1.2); /* Effet de zoom au survol */
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
 }
