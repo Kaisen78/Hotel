@@ -7,7 +7,11 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
+    background-image: url('/Hotel/Front/assets/bouquet-3744044_640.jpg');
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -16,20 +20,33 @@ body {
     min-height: 100vh;
 }
 
+/* Header */
 header {
     text-align: center;
     margin-bottom: 20px;
+    padding-bottom: 30px; /* Espacement en bas pour séparer du contenu */
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5); /* Séparation claire */
 }
 
+/* Titre principal */
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-family: 'Cinzel', serif; /* Police élégante */
+    font-size: 2.5rem; /* Taille réduite */
+    margin-bottom: 10px; /* Espacement plus réduit */
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ombre légère */
 }
 
+/* Sous-titre */
 header p {
-    font-size: 1.2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.2rem; /* Taille réduite */
+    color: #000000;
+    margin-bottom: 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Ombre douce */
 }
 
+/* Logo de login */
 header .login-logo {
     position: absolute;
     top: 20px;
@@ -49,6 +66,7 @@ header .login-logo img:hover {
     opacity: 0.8;
 }
 
+/* Main section */
 main {
     position: relative;
     width: 80%;
@@ -57,14 +75,16 @@ main {
     padding: 20px;
 }
 
+/* Background transparent for card presentation */
 .page {
     display: none; /* Cacher les pages au départ */
     padding: 20px;
-    background-color: white;
-    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.8); /* Fond blanc transparent */
+    border-radius: 20px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
+/* Images styles */
 .page img {
     width: 100%;
     border-radius: 5px;
@@ -109,4 +129,73 @@ ul {
 
 .nav-button:hover {
     background-color: #555;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    header p {
+        font-size: 1.1rem;
+    }
+
+    .restaurant-images img, .wine-images img {
+        width: 45%; /* Réduction de la taille des images pour les écrans plus petits */
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    /* Réduire les espacements */
+    header {
+        padding-bottom: 30px;
+    }
+
+    .restaurant-images img, .wine-images img {
+        width: 100%; /* Les images prennent toute la largeur pour une meilleure présentation */
+    }
+
+    .navigation {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-button {
+        width: 100%;
+        padding: 12px;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header p {
+        font-size: 0.9rem;
+    }
+
+    /* Réduire davantage la taille des images pour les très petits écrans */
+    .restaurant-images img, .wine-images img {
+        width: 100%;
+    }
+
+    .nav-button {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+
+    main {
+        width: 95%; /* Utilisation de presque toute la largeur de l'écran sur les petits écrans */
+    }
 }

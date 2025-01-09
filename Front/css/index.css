@@ -25,7 +25,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #000000;
     position: relative;
 }
 
@@ -38,6 +38,11 @@ header .login-logo {
     top: 20px;
     right: 20px;
     z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
 }
 
 header .login-logo img {
@@ -78,7 +83,7 @@ header a {
     display: inline-block;
     padding: 10px 30px;
     background-color: #c39e81;
-    color: #fff;
+    color: #000000;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
@@ -86,10 +91,6 @@ header a {
     border-radius: 5px;
     z-index: 1;
     transition: background-color 0.3s ease;
-}
-
-header a:hover {
-    background-color: #a37a5b;
 }
 
 section {
@@ -132,7 +133,7 @@ section {
 }
 
 footer {
-    background: #333;
+   
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -163,8 +164,8 @@ footer p {
 #presentation {
     text-align: center; /* Centrer le texte */
     font-family: 'Cinzel', serif; /* Utiliser la police Cinzel */
-    font-size: 1.3rem; /* Taille de police */
-    color: #ffffff; /* Couleur du texte */
+    font-size: 1.4rem; /* Taille de police */
+    color: #000000; /* Couleur du texte */
     border-radius: 10px; /* Coins arrondis */
     padding: 40px 20px; /* Espacement interne plus grand pour donner de la hauteur */
     margin: 20px auto; /* Marge automatique pour centrer la section */
@@ -172,8 +173,7 @@ footer p {
     height: auto; /* Hauteur automatique */
     line-height: 1.6; /* Hauteur de ligne pour améliorer la lisibilité */
     overflow: hidden; /* Cacher le débordement si nécessaire */
-    background-color: #666;
-    opacity: 30px;
+    
     
 }
 
