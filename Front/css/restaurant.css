@@ -45,13 +45,16 @@ header p {
     margin-bottom: 25px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Ombre douce */
 }
-
-/* Logo de login */
 header .login-logo {
     position: absolute;
     top: 20px;
     right: 20px;
     z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
 }
 
 header .login-logo img {
@@ -65,7 +68,6 @@ header .login-logo img:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
-
 /* Main section */
 main {
     position: relative;
