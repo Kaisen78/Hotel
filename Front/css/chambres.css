@@ -28,6 +28,24 @@ header h1 {
 header p {
     font-size: 1.5rem;
 }
+header .login-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+header .login-logo img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+header .login-logo img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
 
 /* Carousel Wrapper */
 .chambre-wrapper {
@@ -99,4 +117,28 @@ header p {
 
 .arrow.right {
     right: 20px;
+}
+
+/* Conteneur pour le bouton */
+.reserve-container {
+    text-align: center;
+    margin: 20px 0; /* Espacement avec la section des chambres */
+    z-index: 1;
+}
+
+/* Style du bouton */
+.reserve-btn {
+    background-color:  #c39e81;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #a37a5b;
+    transform: scale(1.1); /* Zoom léger au survol */
 }

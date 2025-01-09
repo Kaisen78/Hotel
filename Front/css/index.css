@@ -8,11 +8,15 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    background-color: #f7f7f7;
+    background-image: url('/Hotel/Front/assets/villa-cortine-palace-947035_640.jpg');
+    background-size: cover; /* Couvre toute la page */
+    background-position: center center; /* Centre l'image */
+    background-attachment: fixed; /* Rendre l'image fixe lors du défilement */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
 
 header {
-    background-image: url('/Hotel/Front/assets/image (2).jpg');
+   
     background-size: cover;
     background-position: center;
     height: 90vh; 
@@ -21,7 +25,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #000000;
     position: relative;
 }
 
@@ -34,6 +38,11 @@ header .login-logo {
     top: 20px;
     right: 20px;
     z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
 }
 
 header .login-logo img {
@@ -55,7 +64,7 @@ header::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+   
 }
 
 header h1 {
@@ -74,7 +83,7 @@ header a {
     display: inline-block;
     padding: 10px 30px;
     background-color: #c39e81;
-    color: #fff;
+    color: #000000;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
@@ -82,73 +91,6 @@ header a {
     border-radius: 5px;
     z-index: 1;
     transition: background-color 0.3s ease;
-}
-
-header a:hover {
-    background-color: #a37a5b;
-}
-
-.navbar {
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.navbar-hidden { 
-    transform: translateY(-100%);
-}
-
-.navbar-logo a {
-    color: #fff;
-    text-decoration: none;
-    font-family: 'Playfair Display', serif;
-    font-size: 1.5rem;
-}
-
-.navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navbar-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.navbar-links li a:hover {
-    color: #c39e81;
-}
-
-.navbar-links .btn-connexion {
-    background-color: #c39e81;
-    color: #fff;
-    padding: 8px 15px;
-    border-radius: 5px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-}
-
-.navbar-links .btn-connexion:hover {
-    background-color: #a37a5b;
-}
-
-.navbar-toggle {
-    display: none;
-    font-size: 1.5rem;
-    cursor: pointer;
 }
 
 section {
@@ -191,7 +133,7 @@ section {
 }
 
 footer {
-    background: #333;
+   
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -246,18 +188,17 @@ footer p {
 }
 
 #presentation {
-    text-align: center;
-    font-family: 'Cinzel', serif;
-    font-size: 1.2rem;
-    color: #333;
-    background-color: rgba(255, 255, 255, 0.9);
-    border: 1px solid #c39e81;
-    border-radius: 10px;
-    padding: 40px 20px;
-    margin: 20px auto;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    max-width: 600px;
-    height: auto;
-    line-height: 1.6;
-    overflow: hidden;
+    text-align: center; /* Centrer le texte */
+    font-family: 'Cinzel', serif; /* Utiliser la police Cinzel */
+    font-size: 1.4rem; /* Taille de police */
+    color: #000000; /* Couleur du texte */
+    border-radius: 10px; /* Coins arrondis */
+    padding: 40px 20px; /* Espacement interne plus grand pour donner de la hauteur */
+    margin: 20px auto; /* Marge automatique pour centrer la section */
+    max-width: 600px; /* Largeur maximale pour la section, moins large */
+    height: auto; /* Hauteur automatique */
+    line-height: 1.6; /* Hauteur de ligne pour améliorer la lisibilité */
+    overflow: hidden; /* Cacher le débordement si nécessaire */
+    
+    
 }

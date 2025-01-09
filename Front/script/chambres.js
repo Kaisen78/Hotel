@@ -68,3 +68,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Réinitialisation après la transition
     chambreList.addEventListener("transitionend", handleInfiniteScroll);
 });
+
+
+
+
+
