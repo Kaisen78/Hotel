@@ -215,3 +215,69 @@ ul {
         width: 95%; /* Utilisation de presque toute la largeur de l'écran sur les petits écrans */
     }
 }
+/* Style du bouton de menu */
+.menu-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    top: 20px; /* Ajustez selon vos besoins */
+    left: 20px; /* Ajustez selon vos besoins */
+    width: 50px; /* Taille réduite du bouton */
+    height: 50px; /* Taille réduite du bouton */
+    padding: 0; /* Supprime le padding excessif */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* S'assurer que le bouton est au-dessus */
+}
+
+/* Style de l'icône du menu */
+.menu-button img {
+    width: 100%; /* Ajuste l'icône à la taille du bouton */
+    height: auto; /* Conserve le ratio d'aspect de l'image */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* Style du panneau latéral */
+.sidebar {
+    height: 100%;
+    width: 250px; /* Largeur du panneau */
+    position: fixed; /* Rester en place lors du défilement */
+    top: 0;
+    left: -250px; /* Masqué par défaut */
+    background-color: white; /* Couleur de fond */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: 0.3s; /* Transition douce */
+    padding: 20px;
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+/* Style pour afficher le panneau */
+.sidebar.open {
+    left: 0; /* Afficher le panneau */
+}
+
+/* Style du bouton de fermeture */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Style des liens */
+.sidebar ul {
+    list-style-type: none; /* Supprimer les puces */
+    padding-left: 0; /* Supprimer le padding */
+}
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}  

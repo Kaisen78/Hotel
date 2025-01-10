@@ -54,7 +54,6 @@ header p {
 header a {
     display: inline-block;
     padding: 10px 30px;
-    background-color: #c39e81;
     color: #fff;
     text-transform: uppercase;
     font-weight: bold;
@@ -65,67 +64,98 @@ header a {
     transition: background-color 0.3s ease;
 }
 
-header a:hover {
-    background-color: #a37a5b;
+
+header .login-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
 }
 
-/* Navbar Styles */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: #fff;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    transition: transform 0.3s ease, opacity 0.3s ease;
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
 }
 
-.navbar.hidden {
-    transform: translateY(-100%);
-    opacity: 0;
-}
-
-.navbar-links {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
-
-.navbar-links li a {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1rem;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
-
-.navbar-links li a:hover {
-    color: #c39e81;
-}
-
-.navbar-logo img {
-    width: 50px; /* Taille du logo */
-    height: auto;
-    display: block;
-    margin: 0 auto;
+header .login-logo img {
+    width: 80px;
+    height: 80px;
     cursor: pointer;
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-.navbar-logo img:hover {
+header .login-logo img:hover {
     transform: scale(1.1);
     opacity: 0.8;
 }
 
-.navbar-toggle {
-    display: none;
-    font-size: 1.5rem;
+/* Style du bouton de menu */
+.menu-button {
+    background: none;
+    border: none;
     cursor: pointer;
+    position: absolute;
+    top: 20px; /* Ajustez selon vos besoins */
+    left: 20px; /* Ajustez selon vos besoins */
+    width: 50px; /* Taille réduite du bouton */
+    height: 50px; /* Taille réduite du bouton */
+    padding: 0; /* Supprime le padding excessif */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000; /* S'assurer que le bouton est au-dessus */
 }
+
+/* Style de l'icône du menu */
+.menu-button img {
+    width: 100%; /* Ajuste l'icône à la taille du bouton */
+    height: auto; /* Conserve le ratio d'aspect de l'image */
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+/* Style du panneau latéral */
+.sidebar {
+    height: 100%;
+    width: 250px; /* Largeur du panneau */
+    position: fixed; /* Rester en place lors du défilement */
+    top: 0;
+    left: -250px; /* Masqué par défaut */
+    background-color: white; /* Couleur de fond */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.5);
+    transition: 0.3s; /* Transition douce */
+    padding: 20px;
+    z-index: 1000; /* Au-dessus des autres éléments */
+}
+
+/* Style pour afficher le panneau */
+.sidebar.open {
+    left: 0; /* Afficher le panneau */
+}
+
+/* Style du bouton de fermeture */
+.close-btn {
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Style des liens */
+.sidebar ul {
+    list-style-type: none; /* Supprimer les puces */
+    padding-left: 0; /* Supprimer le padding */
+}
+.sidebar ul li {
+    margin: 15px 0;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+}  
+
 
 /* Section Styles */
 section {

@@ -16,6 +16,29 @@
                 <img src="/Hotel/Front/assets/OIP-removebg-preview.png" alt="Connexion" />
             </a>
         </div>
+         <!-- Bouton pour ouvrir le menu -->
+<button id="menu-toggle" class="menu-button">
+    <img src="/Hotel/Front/assets/men-removebg-preview.png" alt="Menu" />
+</button>
+
+<!-- Panneau du menu -->
+<div id="sidebar" class="sidebar">
+    <button id="close-btn" class="close-btn">&times;</button>
+    <h2>Menu</h2>
+    <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="chambres.html">Chambres</a></li>
+        <li><a href="restaurant.html">Restaurant</a></li>
+        <li><a href="massage.html">Massage</a></li>
+        <li><a href="inscription.html">Inscription</a></li>
+        <li><a href="connection.html">Connexion</a></li>
+        <li><a href="administrateur.html">Administration</a></li>
+        <li><a href="complementaire.html">Pages Complémentaires</a></li>
+        <li><a href="avis.html">Avis</a></li>
+        <li><a href="contact.html">Contact</a></li>
+    </ul>
+</div>
+
     </header>
     <main id="restaurant-depliant">
         <section class="page" id="page-1">
@@ -125,6 +148,28 @@
     </footer>
 
     <script src="./script/restaurant.js"></script>
+    <script>
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.getElementById('sidebar');
+        const closeBtn = document.getElementById('close-btn');
+    
+        // Ouvrir le menu
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+        });
+    
+        // Fermer le menu
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('open');
+        });
+    
+        // Fermer le menu si on clique en dehors
+        window.addEventListener('click', (event) => {
+            if (event.target === sidebar) {
+                sidebar.classList.remove('open');
+            }
+        });
+    </script>
 </body>
 
 </html>
