@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion - La Flèche d’Argent</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/connection.css">
+</head>
+<body>
+    <header>
+        <!-- Bouton pour ouvrir le menu -->
+<button id="menu-toggle" class="menu-button">
+    <img src="/Hotel/Front/assets/men-removebg-preview.png" alt="Menu" />
+    </button>
+     
+    <!-- Panneau du menu -->
+    <div id="sidebar" class="sidebar">
+    <button id="close-btn" class="close-btn">&times;</button>
+    <h2>Menu</h2>
+    <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="chambres.html">Chambres</a></li>
+    <li><a href="restaurant.html">Restaurant</a></li>
+    <li><a href="massage.html">Massage</a></li>
+    <li><a href="inscription.html">Inscription</a></li>
+    <li><a href="connection.html">Connexion</a></li>
+    <li><a href="/Hotel/Back/pages/administrateur.php">Administration</a></li>
+    <li><a href="complementaire.html">Pages Complémentaires</a></li>
+    <li><a href="/Hotel/Back/pages/aviss.php">Avis</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    </ul>
+    </div>
+     
+     
+        <h1>Connexion</h1>
+        <p>Connectez-vous pour accéder à votre compte.</p>
+    </header>
+    <main>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Adresse E-mail :</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="motdepasse">Mot de passe :</label>
+                <input type="password" id="motdepasse" name="motdepasse" required>
+            </div>
+            <div class="form-group">
+                <button type="submit">Se connecter</button>
+            </div>
+        </form>
+        <p id="errorMessage" style="color: red; display: none;"></p>
+        <p>Pas encore de compte ? <a href="inscription.html">Inscrivez-vous ici</a>.</p>        
+    </main>
+    <footer>
+        <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
+    </footer>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Empêche la soumission classique du formulaire
+
+    const email = document.getElementById('email').value;
+    const motdepasse = document.getElementById('motdepasse').value;
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Réinitialise le message d'erreur
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = '';
+
+    // Envoi des données via fetch
+    fetch('/Hotel/Back/pages/login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `email=${encodeURIComponent(email)}&motdepasse=${encodeURIComponent(motdepasse)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Redirige l'utilisateur en fonction de son rôle
+            window.location.href = data.redirect;
+        } else {
+            // Affiche le message d'erreur
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = data.message;
+        }
+    })
+    .catch(error => {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+        console.error('Erreur :', error);
+    });
+});
+    const menuToggle = document.getElementById('menu-toggle');
+    const sidebar = document.getElementById('sidebar');
+    const closeBtn = document.getElementById('close-btn');
+        // Ouvrir le menu
+    menuToggle.addEventListener('click', () => {
+        sidebar.classList.toggle('open');
+    });
+        // Fermer le menu
+    closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('open');
+    });
+        // Fermer le menu si on clique en dehors
+    window.addEventListener('click', (event) => {
+        if (event.target === sidebar) {
+            sidebar.classList.remove('open');
+        }
+    });
+    </script>
+        
+</body>
+</html>
