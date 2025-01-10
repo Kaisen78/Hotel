@@ -13,7 +13,7 @@
         <p>Connectez-vous pour accéder à votre compte.</p>
     </header>
     <main>
-        <form action="submit_connection.php" method="post">
+        <form id="loginForm">
             <div class="form-group">
                 <label for="email">Adresse E-mail :</label>
                 <input type="email" id="email" name="email" required>
@@ -26,10 +26,51 @@
                 <button type="submit">Se connecter</button>
             </div>
         </form>
-        <p>Pas encore de compte ? <a href="inscription.html">Inscrivez-vous ici</a>.</p>
+        <p id="errorMessage" style="color: red; display: none;"></p>
+        <p>Pas encore de compte ? <a href="inscription.html">Inscrivez-vous ici</a>.</p>        
     </main>
     <footer>
         <p>&copy; 2025 La Flèche d’Argent. Tous droits réservés.</p>
     </footer>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Empêche la soumission classique du formulaire
+
+    const email = document.getElementById('email').value;
+    const motdepasse = document.getElementById('motdepasse').value;
+    const errorMessage = document.getElementById('errorMessage');
+
+    // Réinitialise le message d'erreur
+    errorMessage.style.display = 'none';
+    errorMessage.textContent = '';
+
+    // Envoi des données via fetch
+    fetch('/Hotel/Back/pages/login.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `email=${encodeURIComponent(email)}&motdepasse=${encodeURIComponent(motdepasse)}`
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Redirige l'utilisateur en fonction de son rôle
+            window.location.href = data.redirect;
+        } else {
+            // Affiche le message d'erreur
+            errorMessage.style.display = 'block';
+            errorMessage.textContent = data.message;
+        }
+    })
+    .catch(error => {
+        errorMessage.style.display = 'block';
+        errorMessage.textContent = 'Une erreur est survenue. Veuillez réessayer.';
+        console.error('Erreur :', error);
+    });
+});
+
+    </script>
+        
 </body>
 </html>

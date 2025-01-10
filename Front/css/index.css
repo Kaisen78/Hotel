@@ -8,11 +8,15 @@
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    background-color: #f7f7f7;
+    background-image: url('/Hotel/Front/assets/villa-cortine-palace-947035_640.jpg');
+    background-size: cover; /* Couvre toute la page */
+    background-position: center center; /* Centre l'image */
+    background-attachment: fixed; /* Rendre l'image fixe lors du défilement */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
 
 header {
-    background-image: url('/Hotel/Front/assets/image (2).jpg');
+   
     background-size: cover;
     background-position: center;
     height: 90vh; 
@@ -21,7 +25,7 @@ header {
     justify-content: center;
     align-items: center;
     text-align: center;
-    color: #fff;
+    color: #000000;
     position: relative;
 }
 
@@ -33,7 +37,12 @@ header .login-logo {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 2;
+    z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
 }
 
 header .login-logo img {
@@ -55,7 +64,7 @@ header::after {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+   
 }
 
 header h1 {
@@ -74,7 +83,7 @@ header a {
     display: inline-block;
     padding: 10px 30px;
     background-color: #c39e81;
-    color: #fff;
+    color: #000000;
     text-transform: uppercase;
     font-weight: bold;
     letter-spacing: 1px;
@@ -82,10 +91,6 @@ header a {
     border-radius: 5px;
     z-index: 1;
     transition: background-color 0.3s ease;
-}
-
-header a:hover {
-    background-color: #a37a5b;
 }
 
 section {
@@ -99,7 +104,7 @@ section {
 }
 
 .service {
-    background: #fff;
+    background: rgba(255, 255, 255, 0.74); /* Blanc avec 50% de transparence */
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     overflow: hidden;
@@ -128,7 +133,7 @@ section {
 }
 
 footer {
-    background: #333;
+   
     color: #fff;
     text-align: center;
     padding: 20px;
@@ -159,16 +164,16 @@ footer p {
 #presentation {
     text-align: center; /* Centrer le texte */
     font-family: 'Cinzel', serif; /* Utiliser la police Cinzel */
-    font-size: 1.2rem; /* Taille de police */
-    color: #333; /* Couleur du texte */
-    background-color: rgba(255, 255, 255, 0.9); /* Fond légèrement blanc pour contraster */
-    border: 1px solid #c39e81; /* Bordure pour donner un effet ancien */
+    font-size: 1.4rem; /* Taille de police */
+    color: #000000; /* Couleur du texte */
     border-radius: 10px; /* Coins arrondis */
     padding: 40px 20px; /* Espacement interne plus grand pour donner de la hauteur */
     margin: 20px auto; /* Marge automatique pour centrer la section */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Ombre pour un effet de profondeur */
     max-width: 600px; /* Largeur maximale pour la section, moins large */
     height: auto; /* Hauteur automatique */
     line-height: 1.6; /* Hauteur de ligne pour améliorer la lisibilité */
     overflow: hidden; /* Cacher le débordement si nécessaire */
+    
+    
 }
+

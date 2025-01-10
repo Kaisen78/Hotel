@@ -7,13 +7,17 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
+    background-image: url('/Hotel/Front/assets/massages.jpg');
     color: #333;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    min-height: 100vh;
+    min-height: 70vh;
+    background-size: cover; /* Couvre toute la page */
+    background-position: center center; /* Centre l'image */
+    background-attachment: fixed; /* Rendre l'image fixe lors du défilement */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
 
 header {
@@ -29,6 +33,31 @@ header h1 {
 header p {
     font-size: 1.2rem;
 }
+
+header .login-logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
+}
+
+header .login-logo img {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+header .login-logo img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
 
 main {
     background-color: white;
@@ -55,17 +84,29 @@ main {
 .massage-item:hover {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre au survol */
 }
+.reserve-button {
+    padding: 10px 15px; /* Espacement interne */
+    background-color: #c39e81; /* Couleur de fond */
+    color: white; /* Couleur du texte */
+    border: none; /* Pas de bordure */
+    border-radius: 5px; /* Coins arrondis */
+    cursor: pointer; /* Curseur de main */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Transition pour l'effet de survol */
+    font-size: 1rem; /* Taille de police */
+}
+
+.reserve-button:hover {
+    background-color: #a37a5b; /* Couleur au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
 
 footer {
-    background: #333;
-    color: #fff;
+    margin-top: 20px;
     text-align: center;
-    padding: 20px;
+    font-size: 0.9rem;
+    color: #666;
 }
 
-footer p {
-    font-size: 0.9rem;
-}
 .header-content {
     z-index: 1;
 }

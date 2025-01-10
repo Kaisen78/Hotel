@@ -7,79 +7,40 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-image: url('/Hotel/Front/assets/istockphoto-1409928624-612x612.jpg');
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
+    background-size: cover; /* Couvre toute la page */
+    background-position: center center; /* Centre l'image */
+    background-attachment: fixed; /* Rendre l'image fixe lors du défilement */
+    background-repeat: no-repeat; /* Empêche la répétition de l'image */
 }
 
 header {
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 header h1 {
-    font-size: 2.5rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    margin-bottom: 20px;
 }
 
 header p {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
 }
-
-main {
-    background-color: white;
-    border-radius: 10px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    width: 80%; /* Largeur ajustée pour le contenu */
-    max-width: 800px; /* Largeur maximale pour le contenu */
-}
-
-.chambre-list {
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Espacement entre les éléments */
-}
-
-.chambre-item {
-    border: 1px solid #ccc; /* Bordure autour de chaque chambre */
-    border-radius: 5px; /* Coins arrondis */
-    padding: 15px; /* Espacement interne */
-    transition: box-shadow 0.3s; /* Transition pour l'effet de survol */
-}
-
-.chambre-item:hover {
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Ombre au survol */
-}
-
-.chambre-item img {
-    width: 100%; /* Image responsive */
-    border-radius: 5px; /* Coins arrondis pour les images */
-}
-
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-}
-
-footer p {
-    font-size: 0.9rem;
-}
-.header-content {
-    z-index: 1;
-}
-
 header .login-logo {
     position: absolute;
     top: 20px;
     right: 20px;
-    z-index: 2;
+    z-index: 1;
+}
+
+header .login-logo a {
+    background-color: transparent; /* Supprime le fond marron */
+    padding: 0; /* Retire le padding si nécessaire */
 }
 
 header .login-logo img {
@@ -92,4 +53,100 @@ header .login-logo img {
 header .login-logo img:hover {
     transform: scale(1.1);
     opacity: 0.8;
+}
+
+/* Carousel Wrapper */
+.chambre-wrapper {
+    width: 100%;
+    max-width: 1200px; /* Augmentation de la largeur maximale */
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 20px 0; /* Ajout d'espace autour */
+}
+
+/* Chambre List */
+.chambre-list {
+    display: flex;
+    transition: transform 0.6s ease-in-out; /* Transition plus fluide */
+    gap: 30px; /* Plus d'espace entre les éléments */
+}
+
+.chambre-item {
+    flex: 0 0 400px; /* Augmentation de la largeur des cartes */
+    text-align: center;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.chambre-item:hover {
+    transform: scale(1.1); /* Accentuation de l'effet au survol */
+}
+
+.chambre-item img {
+    width: 100%;
+    height: 300px; /* Agrandissement de la hauteur des images */
+    object-fit: cover;
+}
+
+.chambre-item h2 {
+    padding: 15px;
+    font-size: 1.5rem; /* Augmentation de la taille du texte */
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Navigation Arrows */
+.arrow {
+    background: none;
+    border: none;
+    font-size: 3rem; /* Agrandissement des flèches */
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    color: #333;
+    padding: 0 15px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.arrow:hover {
+    color: #666;
+    transform: scale(1.2); /* Effet de zoom au survol */
+}
+
+.arrow.left {
+    left: 20px;
+}
+
+.arrow.right {
+    right: 20px;
+}
+
+/* Conteneur pour le bouton */
+.reserve-container {
+    text-align: center;
+    margin: 20px 0; /* Espacement avec la section des chambres */
+    z-index: 1;
+}
+
+/* Style du bouton */
+.reserve-btn {
+    background-color:  #c39e81;
+    color: white;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.reserve-btn:hover {
+    background-color: #a37a5b;
+    transform: scale(1.1); /* Zoom léger au survol */
 }
