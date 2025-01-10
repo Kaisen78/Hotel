@@ -31,7 +31,7 @@ header .login-logo img:hover {
 body {
     font-family: 'Roboto', sans-serif;
     color: #333;
-    background-color: #f7f7f7;
+    background-image: url('/Hotel/Front/assets/window-shadow-bedroom-wall.jpg');
     padding: 20px;
     line-height: 1.6;
     text-align: center;

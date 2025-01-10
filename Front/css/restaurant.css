@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-image: url('/Hotel/Front/assets/bouquet-3744044_640.jpg');
+    background-image: url('/Hotel/Front/assets/cake-glass-arrangement-with-copy-space.jpg');
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -34,7 +34,6 @@ header h1 {
     font-size: 2.5rem; /* Taille réduite */
     margin-bottom: 10px; /* Espacement plus réduit */
     color: #000000;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Ombre légère */
 }
 
 /* Sous-titre */
@@ -43,7 +42,6 @@ header p {
     font-size: 1.2rem; /* Taille réduite */
     color: #000000;
     margin-bottom: 25px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2); /* Ombre douce */
 }
 header .login-logo {
     position: absolute;

@@ -4,24 +4,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const arrowLeft = document.querySelector(".arrow.left");
     const arrowRight = document.querySelector(".arrow.right");
 
-    const itemWidth = chambres[0].offsetWidth + 30; // Largeur de chaque élément + espace
+    const itemWidth = chambres[0].offsetWidth + 30; // Largeur d'un élément + espace
     let currentIndex = 1; // Démarrage après le clone initial
     const totalChambres = chambres.length;
 
-    // Clone des premiers et derniers éléments
+    // Clone des premiers et derniers éléments pour l'effet infini
     const firstClone = chambres[0].cloneNode(true);
     const lastClone = chambres[totalChambres - 1].cloneNode(true);
-    chambreList.appendChild(firstClone); // Ajouter le clone du premier à la fin
-    chambreList.insertBefore(lastClone, chambres[0]); // Ajouter le clone du dernier au début
-
-    // Précharger les images des clones
-    const preloadImage = (image) => {
-        const img = new Image();
-        img.src = image.src;
-    };
-    chambres.forEach((chambre) => preloadImage(chambre.querySelector("img")));
-    preloadImage(firstClone.querySelector("img"));
-    preloadImage(lastClone.querySelector("img"));
+    chambreList.appendChild(firstClone); // Clone du premier à la fin
+    chambreList.insertBefore(lastClone, chambres[0]); // Clone du dernier au début
 
     // Position initiale
     chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
@@ -35,41 +26,49 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gestion des limites pour le défilement infini
     const handleInfiniteScroll = () => {
         if (currentIndex === 0) {
-            chambreList.style.transition = "none"; // Pas de transition
-            currentIndex = totalChambres; // Aller au dernier élément
+            chambreList.style.transition = "none";
+            currentIndex = totalChambres;
             requestAnimationFrame(() => {
                 chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
             });
         }
         if (currentIndex === totalChambres + 1) {
-            chambreList.style.transition = "none"; // Pas de transition
-            currentIndex = 1; // Retour au premier élément
+            chambreList.style.transition = "none";
+            currentIndex = 1;
             requestAnimationFrame(() => {
                 chambreList.style.transform = `translateX(${-currentIndex * itemWidth}px)`;
             });
         }
     };
 
+    // Défilement automatique
+    const autoScroll = () => {
+        currentIndex++;
+        updateCarousel();
+    };
+
+    // Intervalle pour le défilement automatique
+    let autoScrollInterval = setInterval(autoScroll, 3000); // Change toutes les 3 secondes
+
     // Navigation avec les flèches
     arrowLeft.addEventListener("click", () => {
-        if (currentIndex > 0) {
-            currentIndex--;
-            updateCarousel();
-        }
+        currentIndex--;
+        updateCarousel();
+        resetAutoScroll();
     });
 
     arrowRight.addEventListener("click", () => {
-        if (currentIndex < totalChambres + 1) {
-            currentIndex++;
-            updateCarousel();
-        }
+        currentIndex++;
+        updateCarousel();
+        resetAutoScroll();
     });
 
     // Réinitialisation après la transition
     chambreList.addEventListener("transitionend", handleInfiniteScroll);
+
+    // Réinitialise l'intervalle de défilement automatique après une interaction manuelle
+    const resetAutoScroll = () => {
+        clearInterval(autoScrollInterval);
+        autoScrollInterval = setInterval(autoScroll, 3000);
+    };
 });
-
-
-
-
-

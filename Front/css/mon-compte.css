@@ -7,13 +7,15 @@
 
 body {
     font-family: 'Roboto', sans-serif;
-    background-color: #f7f7f7;
-    color: #333;
+    background-image: url('/Hotel/Front/assets/window-shadow-bedroom-wall.jpg');
+    min-height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixe l'image lors du défilement */
+    background-repeat: no-repeat;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    min-height: 100vh;
 }
 
 header {
